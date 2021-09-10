@@ -23,9 +23,9 @@ public class Main {
 //        Main.exercise13();
 //        Main.exercise14();
 //        Main.exercise15();
-        Main.exercise16();
+//        Main.exercise16();
 //        Main.exercise17();
-//        Main.exercise18();
+        Main.exercise18();
 
     }
 
@@ -318,6 +318,60 @@ public class Main {
         System.out.println("persona_1 = " + persona_1);
         System.out.println("persona_2 = " + persona_2);
         System.out.println("persona_3 = " + persona_3);
+    }
+
+    public static void exercise18() {
+        Serie series[] = new Serie[5];
+        series[0] = new Serie("Duro de matar", 4, "Accion", "Carlos Agudelo");
+        series[1] = new Serie("La vida es bella", 7, "Drama", "Maria Vaupes");
+        series[2] = new Serie("Halloween", 2, "Terror", "Tim Burton");
+        series[3] = new Serie("Los pitufos", 1, "Infantil", "Ko Wun");
+        series[4] = new Serie("Stranger things", 9, "Misterio", "Kikis Suggar");
+        series[1].entregar();
+        series[3].entregar();
+        series[4].entregar();
+        Videojuego videojuegos[] = new Videojuego[5];
+        videojuegos[0] = new Videojuego("Farcry", 200, "Accion", "Ubisoft");
+        videojuegos[1] = new Videojuego("Smash bros", 300, "Pelea", "Nintendo");
+        videojuegos[2] = new Videojuego("Sekiro", 450, "Accion", "Ubisoft");
+        videojuegos[3] = new Videojuego("Fornite", 150, "Shooter", "EpicGames");
+        videojuegos[4] = new Videojuego("Assasin creed", 520, "Aventura", "Sony");
+        videojuegos[0].entregar();
+        videojuegos[4].entregar();
+
+        int auxContador = 0;
+        int auxElementoMayor = 0;
+        int auxIndice = 0;
+        for (int j = series.length - 1; j >= 0; j--) {
+            if (series[j].estaEnPrestamo()) auxContador++;
+            if (series[j].numeroTemporadas > auxElementoMayor) {
+                auxElementoMayor = series[j].numeroTemporadas;
+                auxIndice = j;
+            }
+        }
+        System.out.println("Hay " + auxContador + " series prestadas");
+        System.out.println("La serie con mas temporadas es " + series[auxIndice].titulo + ", que tiene "
+                + auxElementoMayor + " temporadas.");
+        System.out.println(series[auxIndice] + "\n\n");
+
+        auxContador = 0;
+        auxElementoMayor = 0;
+        for (int j = videojuegos.length - 1; j >= 0; j--) {
+            if (videojuegos[j].estaEnPrestamo()) auxContador++;
+            if (videojuegos[j].horasEstimadas > auxElementoMayor) {
+                auxElementoMayor = videojuegos[j].horasEstimadas;
+                auxIndice=j;
+            }
+        }
+        System.out.println("Hay " + auxContador + " videojuegos prestados");
+        System.out.println("El videojuego con mas horas estimadas de juego es " +
+                videojuegos[auxIndice].titulo + ", el cual tiene "
+                + auxElementoMayor);
+        System.out.println(videojuegos[auxIndice]);
+    }
+
+    public static void exercise17() {
+
     }
 }
 
