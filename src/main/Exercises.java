@@ -9,8 +9,6 @@ import java.util.Scanner;
 public class Exercises {
 
 
-
-
     private static boolean isInt(String cadena) {
         try {
             Integer.parseInt(cadena);
@@ -65,8 +63,8 @@ public class Exercises {
         int d;
         while (true) {
             c = sc.nextLine();
-            if(isInt(c)){
-                d=Integer.parseInt(c);
+            if (isInt(c)) {
+                d = Integer.parseInt(c);
                 for (int u : o) if (u == d) return d;
             }
             System.out.println("Escoja una opcion valida");
@@ -273,7 +271,6 @@ public class Exercises {
         personaAuxiliar.add(sc.nextLine());
         System.out.print("Edad: ");
         personaAuxiliar.add(validIntInput());
-//        boolean corregirSexo = true;
         char sexo = '-';
         while (true) {
             System.out.println("Sexo(H/M): ");
@@ -356,7 +353,7 @@ public class Exercises {
             if (videojuegos[j].estaEnPrestamo()) auxContador++;
             if (videojuegos[j].horasEstimadas > auxElementoMayor) {
                 auxElementoMayor = videojuegos[j].horasEstimadas;
-                auxIndice=j;
+                auxIndice = j;
             }
         }
         System.out.println("Hay " + auxContador + " videojuegos prestados");
@@ -367,6 +364,40 @@ public class Exercises {
     }
 
     public static void exercise17() {
+        Electrodomestico electrodomesticos[] = new Electrodomestico[10];
+        electrodomesticos[0] = new Electrodomestico(300, 30);
+        electrodomesticos[1] = new Electrodomestico(30, 10);
+        electrodomesticos[2] = new Electrodomestico(150, "negro", 'C', 120);
+        electrodomesticos[3] = new Television(150, "blanco", 'C', 250, 45, false);
+        electrodomesticos[4] = new Television(400, "gris", 'B', 300, 55, true);
+        electrodomesticos[5] = new Television(100, "rojo", 'A', 150, 45, true);
+        electrodomesticos[6] = new Television(200, "azul", 'D', 300, 40, true);
+        electrodomesticos[7] = new Lavadora(100, 500);
+        electrodomesticos[8] = new Lavadora(130, 300);
+        electrodomesticos[9] = new Lavadora(130, "rojo", 'F', 300, 55);
+
+        for (Electrodomestico i : electrodomesticos) {
+            i.precioFinal();
+        }
+        System.out.println("ELECTRODOMESTICO GENERAL");
+        for (Electrodomestico i : electrodomesticos) {
+            if (i instanceof Electrodomestico&&!(i instanceof Television)&&!(i instanceof Lavadora)) {
+                System.out.println(i);
+            }
+        }
+        System.out.println("TELEVISOR");
+        for (Electrodomestico i : electrodomesticos) {
+            if (i instanceof Television) {
+                System.out.println(i);
+            }
+        }
+
+        System.out.println("LAVADORA");
+        for (Electrodomestico i : electrodomesticos) {
+            if (i instanceof Lavadora) {
+                System.out.println(i);
+            }
+        }
 
     }
 }
